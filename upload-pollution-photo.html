@@ -1,0 +1,119 @@
+<!--
+    Project: Pollution-Complaint
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pollution - Complaint </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/jquery/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="bootstrap/w3.css/w3.css">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="scripts/show-register-details.js"></script>
+        <style>
+            /* Remove the navbar's default margin-bottom and rounded borders */ 
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            /* Add a gray background color and some padding to the footer */
+            footer {
+                background-color: #f2f2f2;
+                padding: 25px;
+            }
+            .jumbotron{
+                //background: url(images/header-images/background-image.jpg);
+                background-size: 100% 100%;
+                opacity:1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="w3-animate-top">                    
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                            </button>
+                            <a class="navbar-brand" href="">Pollution</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li class="dropdown active">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Complaint<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="complaint-page.html" onclick="">Registration</a></li>
+                                        <li><a href="display-details.html">Details</a></li>
+                                        <li><a href="search-police-station-contact.html" onclick="">Search Police Station Contact</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us-page.html">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="jumbotron">
+                <form name="pollutionComplaint" method="POST" enctype="multipart/form-data">
+                    <div class="table-responsive">
+                        <table border="1" class="w3-table">
+                            <tr>
+                                <th>Please upload pollution photograph:</th>
+                                <th> <input type="file" class="form-control-file" accept=".jpg,.jpeg,.png" name="myPhoto" id="exampleInputFile" onchange="selectedFile(this)" required> </th>
+                                
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <center>
+                        <p id="testId"></p>
+                    </center>
+                </form>
+            </div>
+        </div>
+        
+        <script>
+            function selectedFile(originalFile) {
+                if(checkTypeOfFile(originalFile.value)){
+                    uploadPhoto();
+                } else {
+                    alert("Invalid file");
+                }
+            }
+            function checkTypeOfFile(fileName) {
+                var extension = fileName.split(".")[1];
+                var flag = false;
+                if(extension == "jpg" || extension == "png" || extension == "jpeg"){
+                    flag = true;
+                }
+                return flag;
+            }
+            function uploadPhoto(){
+                xmlhttp = new XMLHttpRequest();
+                var imageFile = document.pollutionComplaint.myPhoto.files[0];
+                var fileName = imageFile.name;
+
+                var formData = new FormData();
+                formData.append("file", imageFile);
+                xmlhttp.open("POST","/Pollution-Complaint/jsp-pages/upload-photo.jsp?fileName="+fileName,false);
+                xmlhttp.send(formData);
+                output = xmlhttp.responseText;
+                document.getElementById("testId").innerHTML = output;
+                //alert(output.trim());
+            }
+        </script>
+    </body>
+</html>

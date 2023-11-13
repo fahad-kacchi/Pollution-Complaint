@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Complaint Reply</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/jquery/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="bootstrap/w3.css/w3.css">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <style>
+         .jumbotron{
+                //background: url(images/header-images/login-background.jpg);
+                background-size: 100% 100%;
+                opacity:1;
+            }
+        </style>
+    </head>
+    <br>
+    <body onload="setRegId()">
+        <div class="container">
+            <div class="jumbotron" style="background-color: #FAF9F9">
+                <div>
+                    <center>
+                        <b><h2>Pollution Complaint</h2></b>
+                    </center>
+                    <hr/>
+                    <br>
+                    
+                    <label><b>Reply to complaint:*</b></label>
+                    <textarea class="w3-input w3-border w3-margin-bottom" type="text"  placeholder="Enter message" name="message" id="message"></textarea>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" onclick="submit()">Submit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" onclick="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/get-url.js"></script>
+        <script>
+            function getRegId(){
+                return regId = getURL().split("=")[1];
+            }
+            function submit(){
+                var message = document.getElementById("message").value;
+                window.location = "jsp-pages/save-complaint-details.jsp?regId="+getRegId()+"&message="+message;
+            }
+            function cancel(){
+                window.location = "";
+            }
+        </script>
+       
+        <script src="scripts/print-complaint-details.js"></script>
+    </body>
+</html>

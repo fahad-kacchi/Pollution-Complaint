@@ -1,0 +1,285 @@
+<!--
+    Project: Pollution
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pollution - Complaint </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/jquery/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="bootstrap/w3.css/w3.css">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <style>
+            /* Remove the navbar's default margin-bottom and rounded borders */ 
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            /* Add a gray background color and some padding to the footer */
+            footer {
+                background-color: #f2f2f2;
+                padding: 25px;
+            }
+            .carousel-inner img {
+                width: 100%; /* Set width to 100% */
+                margin: auto;
+                min-height:200px;
+            }
+
+            /* Hide the carousel text when the screen is less than 600 pixels wide */
+            @media (max-width: 600px) {
+                .carousel-caption {
+                    display: none; 
+                }
+            }
+            
+            #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+            #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+            #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+            #section4 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="w3-animate-top">                    
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                            </button>
+                            <a class="navbar-brand" href="">Pollution</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Complaint<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="complaint-page.html" onclick="">Registration</a></li>
+                                        <li><a href="display-details.html" onclick="">Details</a></li>
+                                        <li><a href="search-police-station-contact.html" onclick="">Search Police Station Contact</a></li>
+                                    </ul>
+                                </li>                                
+                                <li><a href="show-complaint-reply.html" onclick="">Reply</a></li>
+                                <li><a href="about-us-page.html">About Us</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="admin-login-page.html"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            
+            <br>
+            <div class="w3-animate-left">                                
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="images/header-images/air-pollution.jpg" alt="Image">
+                            <div class="carousel-caption">
+                                <h2>Air Pollution</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/header-images/water-pollution.png" alt="Image">
+                            <div class="carousel-caption">
+                                <h2>Water Pollution</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/header-images/soil-pollution.jpg" alt="Image">
+                            <div class="carousel-caption">
+                                <h2>Soil Pollution</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/header-images/noise-pollution.jpg" alt="Image">
+                            <div class="carousel-caption">
+                                <h2>Noise Pollution</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+            
+        <br>
+        <div class="container">
+            <div class="col-md-12">
+                <div class="w3-animate-zoom">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <font size="4">
+                                Air Pollution
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">                
+                        <div class="w3-animate-zoom">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <img class="img-responsive" src="images/small-images/air-pollution.jpg" class="img-rounded" id="Panel_Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-9">                
+                        <div class="panel panel-default">
+                            <div class="w3-animate-zoom">
+                                <div class="panel-body">
+                                    <font color="black">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Air pollution occurs when harmful or excessive quantities of substances including gases, particulates, and biological molecules are introduced into Earth's atmosphere. It may cause diseases, allergies and also death of humans; it may also cause harm to other living organisms such as animals and food crops, and may damage the natural or built environment. 
+                                        Human activity and natural processes can both generate air pollution.
+                                        <br>
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="w3-animate-zoom">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <font size="4">
+                                Water Pollution
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="w3-animate-zoom">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <img class="img-responsive" src="images/small-images/water-pollution.jpg" class="img-rounded" id="Panel_Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-9">
+                        <div class="w3-animate-zoom">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <font color="black">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Water pollution is the contamination of water bodies, usually as a result of human activities. 
+                                        Water bodies include for example lakes, rivers, oceans, aquifers and groundwater. Water pollution results when contaminants are introduced into the natural environment. For example, releasing inadequately treated wastewater into natural water bodies can lead to degradation of aquatic ecosystems.
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="w3-animate-zoom">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <font size="4">
+                                Soil Pollution
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="w3-animate-zoom">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <img class="img-responsive" src="images/small-images/soil-pollution.jpg" class="img-rounded" id="Panel_Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-9">
+                        <div class="w3-animate-zoom">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <font color="black">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Soil contamination or soil pollution as part of land degradation is caused by the presence of xenobiotic (human-made) chemicals or other alteration in the natural soil environment. It is typically caused by industrial activity, agricultural chemicals, or improper disposal of waste. 
+                                        The most common chemicals involved are petroleum hydrocarbons, polynuclear aromatic hydrocarbons (such as naphthalene and benzo(a)pyrene), solvents, pesticides, lead, and other heavy metals. Contamination is correlated with the degree of industrialization and intensity of chemical usage.
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="w3-animate-zoom">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <font size="4">
+                                Noise Pollution
+                            </font>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="w3-animate-zoom">                    
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <img class="img-responsive" src="images/small-images/noise-pollution.jpg" class="img-rounded" id="Panel_Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="w3-animate-zoom">                    
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <font color="black">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Sound pollution, also known as environmental noise or noise pollution, is the propagation of noise with harmful impact on the activity of human or animal life. 
+                                        The source of outdoor noise worldwide is mainly caused by machines, transport and transportation systems. Poor urban planning may give rise to noise pollution, side-by-side industrial and residential buildings can result in noise pollution in the residential areas. The main sources of noise in residential area are loud music and tv sets. It can also be loud talking or shouting by humans although this last is less persistent. 
+                                        Noise pollution associated with household electricity generators is an emerging environmental degradation in many developing nations. The average noise level of 97.60 dB obtained exceeded the WHO value of 50 dB allowed for residential areas.
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </body>
+</html>

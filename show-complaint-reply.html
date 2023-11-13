@@ -1,0 +1,120 @@
+<!--
+    Project: Pollution
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Reply</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/jquery/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="bootstrap/w3.css/w3.css">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <style>
+            /* Remove the navbar's default margin-bottom and rounded borders */ 
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            /* Add a gray background color and some padding to the footer */
+            footer {
+                background-color: #f2f2f2;
+                padding: 25px;
+            }
+            .carousel-inner img {
+                width: 100%; /* Set width to 100% */
+                margin: auto;
+                min-height:200px;
+            }
+
+            /* Hide the carousel text when the screen is less than 600 pixels wide */
+            @media (max-width: 600px) {
+                .carousel-caption {
+                    display: none; 
+                }
+            }
+            
+            #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+            #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+            #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+            #section4 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+        </style>
+    </head>
+    <body onload="showReplyMessage()">
+        <div class="container">
+            <div class="w3-animate-top">                    
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                            </button>
+                            <a class="navbar-brand" href="">Pollution</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Complaint<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="complaint-page.html" onclick="">Registration</a></li>
+                                        <li><a href="display-details.html" onclick="">Details</a></li>
+                                        <li><a href="search-police-station-contact.html" onclick="">Search Police Station Contact</a></li>
+                                    </ul>
+                                </li>                                
+                                <li class="active"><a href="show-complaint-reply.html" onclick="">Reply</a></li>
+                                <li><a href="about-us-page.html">About Us</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="admin-login-page.html"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+         
+        <div class="container">
+            <div class="jumbotron">
+                <div class="w3-container">
+                    <div class="w3-animate-zoom">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Details</div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th> Sr.No. </th>
+                                                <th> Full name </th>
+                                                <th> Message </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="show-reply-message-id">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function showReplyMessage(){
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET","/Pollution-Complaint/jsp-pages/show-reply-details.jsp",false);
+                xmlhttp.send();
+                output = xmlhttp.responseText;
+                document.getElementById("show-reply-message-id").innerHTML = output.trim();
+            }
+        </script>
+        <script src="scripts/get-url.js"></script>
+    </body>
+</html>

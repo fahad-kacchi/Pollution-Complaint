@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pollution - Complaint </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/jquery/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="bootstrap/w3.css/w3.css">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <style>
+         .jumbotron{
+                //background: url(images/header-images/login-background.jpg);
+                background-size: 100% 100%;
+                opacity:1;
+            }
+        </style>
+    </head>
+    <br>
+    <body onload="showComplaintDetails()">
+        <div class="container" style="background-color: black"> <br>
+            <div class="jumbotron" style="background-color: white">
+                <div class="panel panel-default">
+                    <div class="panel-body" align="center"> <b> Pollution Complaint Info </b> </div>
+                </div>
+                <div>
+                    <form name="pollutionComplaint" method="GET">
+                        <div class="table-responsive">
+                            <table  border="1" class="w3-table" id="show-complaint-details">
+                                
+                            </table>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img id="photo-id" src=""></img>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="panel panel-default">
+                        <a type="button" href="admin-dashboard.html" class="btn btn-primary btn-block">Click here to go back!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function showComplaintDetails(){
+                var regId = getURL().split("=")[1];
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET","/Pollution-Complaint/jsp-pages/show-complaint-details.jsp?regId="+regId,false);
+                xmlhttp.send();
+                output = xmlhttp.responseText;
+                var split = output.trim().split("$");
+                var table = split[0];
+                var image = split[1];
+                var splitPath = image.split("webapps");
+                document.getElementById("show-complaint-details").innerHTML = table;
+                document.getElementById("photo-id").src = splitPath[1];
+            }
+        </script>
+        <script src="scripts/get-url.js"></script>
+    </body>
+</html>
